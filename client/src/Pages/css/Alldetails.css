@@ -1,0 +1,139 @@
+/* Container */
+.table-auto {
+  margin-top: 1%;
+  width: 80%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 24px;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Table Styling */
+#all-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color:  #548ca3;
+  overflow: hidden;
+
+  border-radius: 15px;
+}
+
+#all-details-table-head th {
+  background-color: #0056b3;
+  color: #ffffff;
+  text-align: left;
+  padding: 12px 15px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+#all-details-table-body td {
+  padding: 10px 10px;
+  color: black;
+  font-size: 20px;
+  border-bottom: 2px solid #000000;
+}
+
+#all-details-table-body tr:hover {
+  background-color: #d3ddec;
+}
+
+#all-details-table-body td img {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#all-details-table-body td button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s ease;
+}
+
+#all-details-table-body td button:hover {
+  transform: scale(1.5);
+}
+
+/* Delete Button */
+#al-details-delete-btn {
+  display: inline-block;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#al-details-delete-btn img {
+  width: 34px;
+  height: 34px;
+  transition: transform 0.3s ease;
+  margin-bottom: 42%;
+}
+
+#al-details-delete-btn img:hover {
+  transform: scale(1.5);
+}
+
+/* Modal Styling */
+.text-center-alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.text-center-alert h3 {
+  color: #333;
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+.text-center-alert svg {
+  color: #e3342f;
+  font-size: 40px;
+}
+
+.flowbite-react .modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.flowbite-react .modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.flowbite-react .modal-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.flowbite-react .modal-footer button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.flowbite-react .modal-footer button:hover {
+  opacity: 0.9;
+}
+
+.flowbite-react .btn-failure {
+  background-color: #e3342f;
+  color: #fff;
+}
+
+.flowbite-react .btn-gray {
+  background-color: #aaa;
+  color: #fff;
+}
