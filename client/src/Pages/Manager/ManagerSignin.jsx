@@ -41,7 +41,7 @@ export default function ManagerSignin() {
         console.log(response.status);
         if (response.ok) {
             alert(data.message); 
-            navigate('/')// Display success message
+            navigate('/login-manager')// Display success message
             // Redirect to the next page or perform any other action
         } else {
             alert(data.message); // Display error message

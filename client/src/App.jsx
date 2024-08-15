@@ -24,6 +24,7 @@ import ManagerProfile from './Pages/Manager/ManagerProfile';
 import AddTask from './Pages/Tasks/AddTask';
 import AllTask from './Pages/Tasks/AllTask';
 import UpdateTask from './Pages/Tasks/UpdateTask';
+import ManagerAllDetails from './Pages/Manager/ManagerAllDetails';
 
 
 
@@ -35,6 +36,7 @@ export default function App() {
 <Header/>
   <Routes>
     <Route path="/" element={<AllStaffDetails/>}></Route>
+    <Route path="/login-manager" element={<ManagerAllDetails/>}></Route>
     <Route path="/AllTask" element={<AllTask/>}></Route>
     
     <Route path="/manager-sign-up" element={<ManagerSignUp/>}></Route>

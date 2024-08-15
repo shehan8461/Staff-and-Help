@@ -137,3 +137,38 @@ h2 {
   background-color: #aaa;
   color: #fff;
 }
+#admin-page-names {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+#admin-page-names a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#all-task-page-btn {
+  background-color: #007bff;
+}
+
+#all-task-page-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+#add-task-page-btn {
+  background-color: #28a745;
+}
+
+#add-task-page-btn:hover {
+  background-color: #218838;
+  transform: translateY(-3px);
+}

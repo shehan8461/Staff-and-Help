@@ -148,12 +148,12 @@ export default function Profile() {
       <button className=''>{loading ? 'loading...':'update'}</button>
 
       </form>
-      <div className='flex justify-between mt-5'>
+      <div id='flex justify-between mt-5'>
         <span onClick={handledeleteAccount} className='user-profile-delete-button'>Close Account</span>
         <span onClick={handleSignOut}className='user-profile-signout-button'>Sign Out</span>
-        <Link className='navigate-button-additem' to='/AddStaff'><li>Add Shedule</li></Link> 
-        <Link className='my-items-button' to='/StaffDetailsProfile'><li>My Details</li></Link> 
-        <Link className='my-items-button' to='/AllTask'><li>All Tasks</li></Link> 
+        <Link id='navigate-button-addshedule' to='/AddStaff'>Add Shedule</Link> 
+        <Link id='my-details-button' to='/StaffDetailsProfile'>My Details</Link> 
+        <Link id='all-task-button' to='/AllTask'>All Tasks</Link> 
       </div>
         <p className='user-profile-errors-button'>{error && 'Something went wrong'}</p>
         <p className='user-profile-update-success-button'>{updateSuccess  && 'user  updated successfully'}</p>
