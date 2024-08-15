@@ -182,6 +182,8 @@ export const getTask= async (req, res) => {
 
 export const updateTask =async(req,res)=>{
     const {id,...rest}=req.body
-    const data=await Task.updateOne({_id:id},rest)
+    console.log(rest);
+    
+    const data=await Task.updateOne({_id:id},rest);
     res.send({success:true,message:"updated successfuly",data:data})
 }

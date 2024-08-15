@@ -82,8 +82,11 @@ export default function AllTask() {
                       Get My Task
                    
                   </Link>
-                  <button id='task-one-details-statues-btn' >
-                    Completed
+                  <button
+                      id="task-one-details-statues-btn"
+                      style={{ backgroundColor: task.is_complete ? 'red' : 'yellow' }}
+                    >
+                   {task.is_complete ? 'Completed' : 'Pending'}
                   </button>
                   
                 </Table.Cell>

@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/Alldetails.css';
 import { Button, Modal, Table } from 'flowbite-react';
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../../firebase';
-import logo from '../css/delete-icon.png'
+import logo from '../css/delete-icon.png';
 
 export default function ManagerAllDetails() {
-
   const [orders, setOrders] = useState([]);
   const [orderIdToDelete, setOrderIdToDelete] = useState('');
   const [showModal, setShowModal] = useState(false);
@@ -31,7 +29,6 @@ export default function ManagerAllDetails() {
         if (order.profilePicture) {
           fetchFirebaseImage(order.profilePicture, 'profilePicture', order._id);
         }
-        
       });
     } catch (error) {
       console.error('Error fetching orders:', error);
@@ -63,97 +60,104 @@ export default function ManagerAllDetails() {
       });
       const data = await res.json();
       if (!res.ok) {
-        console.log(data.message);
+        console.log('Delete failed:', data.message);
       } else {
         setOrders((prevOrders) =>
           prevOrders.filter((order) => order._id !== orderIdToDelete)
         );
+        setOrderIdToDelete('');  // Reset orderIdToDelete after deletion
+        console.log('Order deleted successfully');
       }
-      
       setShowModal(false);
     } catch (error) {
-      console.log(error.message);
+      console.log('Error deleting order:', error.message);
     }
   };
 
   return (
-    <div>
-      <div id="admin-page-names">
-      <Link id="add-task-page-btn" to="">All Task</Link>
-      <Link id="all-task-page-btn" to="/AddTask">Add Task</Link>
+    <div className="p-4">
+      <div id="admin-page-names" className="flex justify-between mb-4">
+        <Link id="add-task-page-btn" to="/AdminAllTask">
+          All Task
+        </Link>
+        <Link id="all-task-page-btn" to="/AddTask">
+          Add Task
+        </Link>
       </div>
-    <div className='table-auto'>
-   <h2 className="my-8 text-center font-bold text-4xl text-gray-800">All Staff Information</h2>
 
+      <div className="overflow-x-auto">
+        <h2 className="my-8 text-center font-bold text-4xl text-gray-800">All Staff Information</h2>
 
-      {orders.length > 0 ? (
-        <Table hoverable id='all-details-table'>
-          <Table.Head id="all-details-table-head">
-            <Table.HeadCell>staff Id</Table.HeadCell>
-            <Table.HeadCell>First Name</Table.HeadCell>
-            <Table.HeadCell>Last Name</Table.HeadCell>
-            <Table.HeadCell>Email</Table.HeadCell>
-            <Table.HeadCell>Phone Number</Table.HeadCell>
-            <Table.HeadCell>Department</Table.HeadCell>
-            <Table.HeadCell>Position</Table.HeadCell>
-            <Table.HeadCell>Assigned Shifts</Table.HeadCell>
-            <Table.HeadCell>WorkSchedule</Table.HeadCell>
-            <Table.HeadCell>Photos</Table.HeadCell>
-            <Table.HeadCell>Action</Table.HeadCell>
-          </Table.Head>
-          <Table.Body id="all-details-table-body">
-            {orders.map((order) => (
-              <Table.Row key={order._id} >
-                <Table.Cell>{order.staffId}</Table.Cell>
-                <Table.Cell>{order.firstName}</Table.Cell>
-                <Table.Cell>{order.lastName}</Table.Cell>
-                <Table.Cell>{order.emaill}</Table.Cell>
-                <Table.Cell>{order.phoneNumber}</Table.Cell>
-                <Table.Cell>{order.department}</Table.Cell>
-                <Table.Cell>{order.position}</Table.Cell>
-                <Table.Cell>{order.assignedShifts}</Table.Cell>
-                <Table.Cell>{order.workSchedule}</Table.Cell>
-                <Table.Cell>
-                  <div className="flex gap-2">
-                    {order.profilePicture && (
-                      <img src={order.profilePicture} alt="Profile" className="h-12 w-12 object-cover rounded" />
-                    )}
-                   
-                  </div>
-                </Table.Cell>
-                <Table.Cell>
-                 
-                  <Button id="al-details-delete-btn" onClick={() => {
-                    setShowModal(true);
-                    setOrderIdToDelete(order._id);
-                  }}><img src={logo} alt='logo' width="10%" height="10%"></img></Button>
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      ) : (
-        <p>You have no orders yet!</p>
-      )}
+        {orders.length > 0 ? (
+          <Table hoverable id="all-details-table">
+            <Table.Head id="all-details-table-head">
+              {/* Table Headings */}
+              <Table.HeadCell>Staff ID</Table.HeadCell>
+              <Table.HeadCell>First Name</Table.HeadCell>
+              <Table.HeadCell>Last Name</Table.HeadCell>
+              <Table.HeadCell>Email</Table.HeadCell>
+              <Table.HeadCell>Phone Number</Table.HeadCell>
+              <Table.HeadCell>Department</Table.HeadCell>
+              <Table.HeadCell>Position</Table.HeadCell>
+              <Table.HeadCell>Assigned Shifts</Table.HeadCell>
+              <Table.HeadCell>Work Schedule</Table.HeadCell>
+              <Table.HeadCell>Photos</Table.HeadCell>
+              <Table.HeadCell>Action</Table.HeadCell>
+            </Table.Head>
+            <Table.Body id="all-details-table-body">
+              {orders.map((order) => (
+                <Table.Row key={order._id}>
+                  {/* Table Cells */}
+                  <Table.Cell>{order.staffId}</Table.Cell>
+                  <Table.Cell>{order.firstName}</Table.Cell>
+                  <Table.Cell>{order.lastName}</Table.Cell>
+                  <Table.Cell>{order.emaill}</Table.Cell>
+                  <Table.Cell>{order.phoneNumber}</Table.Cell>
+                  <Table.Cell>{order.department}</Table.Cell>
+                  <Table.Cell>{order.position}</Table.Cell>
+                  <Table.Cell>{order.assignedShifts}</Table.Cell>
+                  <Table.Cell>{order.workSchedule}</Table.Cell>
+                  <Table.Cell>
+                    <div className="flex gap-2">
+                      {order.profilePicture && (
+                        <img src={order.profilePicture} alt="Profile" className="h-12 w-12 object-cover rounded" />
+                      )}
+                    </div>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Button id="al-details-delete-btn" onClick={() => {
+                      setShowModal(true);
+                      setOrderIdToDelete(order._id);
+                    }}>
+                      <img src={logo} alt='logo' width="10%" height="10%"></img>
+                    </Button>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        ) : (
+          <p>You have no orders yet!</p>
+        )}
 
-      <Modal show={showModal} onClose={() => setShowModal(false)} popup size='md'>
-        <Modal.Header />
-        <Modal.Body>
-          <div className="text-center-alert">
-            <HiOutlineExclamationCircle  />
-            <h3 >Are you sure you want to delete this Staff Member?</h3>
-          </div>
-          <div >
-            <Button color='failure' onClick={handleDeleteOrder}>
-              Yes, I am sure
-            </Button>
-            <Button color='gray' onClick={() => setShowModal(false)}>
-              No, cancel
-            </Button>
-          </div>
-        </Modal.Body>
-      </Modal>
-    </div>
+        <Modal show={showModal} onClose={() => setShowModal(false)} popup size='md'>
+          <Modal.Header />
+          <Modal.Body>
+            <div className="text-center-alert">
+              <HiOutlineExclamationCircle className="mx-auto mb-2 text-4xl text-red-600" />
+              <h3>Are you sure you want to delete this Staff Member?</h3>
+            </div>
+            <div className="modal-button-group flex justify-center gap-4 mt-4">
+              <Button color="failure" onClick={handleDeleteOrder}>
+                Yes, I am sure
+              </Button>
+              <Button color="gray" onClick={() => setShowModal(false)}>
+                No, cancel
+              </Button>
+            </div>
+          </Modal.Body>
+        </Modal>
+      </div>
     </div>
   );
 }

@@ -21,6 +21,12 @@ const TaskSchema = new mongoose.Schema({
         required: true,
       
     },
+
+    is_complete:{
+        type:Boolean,
+        default:false
+
+    },
     start_date: {
         type: String,
         required: true,

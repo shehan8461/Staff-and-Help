@@ -25,6 +25,7 @@ import AddTask from './Pages/Tasks/AddTask';
 import AllTask from './Pages/Tasks/AllTask';
 import UpdateTask from './Pages/Tasks/UpdateTask';
 import ManagerAllDetails from './Pages/Manager/ManagerAllDetails';
+import AdminAllTask from './Pages/Manager/AdminAllTask';
 
 
 
@@ -35,9 +36,10 @@ export default function App() {
   return <BrowserRouter>
 <Header/>
   <Routes>
-    <Route path="/" element={<AllStaffDetails/>}></Route>
+   
     <Route path="/login-manager" element={<ManagerAllDetails/>}></Route>
     <Route path="/AllTask" element={<AllTask/>}></Route>
+    <Route path="/AdminAllTask" element={<AdminAllTask/>}></Route>
     
     <Route path="/manager-sign-up" element={<ManagerSignUp/>}></Route>
     <Route path="/manager-sign-in" element={<ManagerSignin/>}></Route>

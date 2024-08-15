@@ -41,6 +41,7 @@ function UpdateTask() {
 
   const handleUpdate = async () => {
     try {
+      task.is_complete=true;
       const response = await fetch(`/api/user/updateTask`, {
         method: 'PUT',
         headers: {
