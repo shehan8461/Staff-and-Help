@@ -80,7 +80,7 @@ export default function StaffDetailsProfile() {
 
   return (
     <div className='table-auto'>
-   <h2 className="my-8 text-center font-bold text-4xl text-gray-800">Staff Information</h2>
+   <h2 className="your-staff-information-main-topic">Staff Information</h2>
 
 
       {orders.length > 0 ? (
@@ -100,7 +100,7 @@ export default function StaffDetailsProfile() {
           </Table.Head>
           <Table.Body id='one-details-body'>
             {orders.map((order) => (
-              <Table.Row key={order._id} className='bg-white dark:border-gray-700 dark:bg-gray-800' >
+              <Table.Row key={order._id} id='table-row-your-details' >
                 <Table.Cell>{order.staffId}</Table.Cell>
                 <Table.Cell>{order.firstName}</Table.Cell>
                 <Table.Cell>{order.lastName}</Table.Cell>
@@ -113,7 +113,7 @@ export default function StaffDetailsProfile() {
                 <Table.Cell>
                   <div className="flex gap-2">
                     {order.profilePicture && (
-                      <img src={order.profilePicture} alt="Profile" className="h-20 w-20 m--10 p-0 object-cover rounded" />
+                      <img src={order.profilePicture} alt="Profile" className="h-15 w-10 m--10 p-0 object-cover rounded" />
                     )}
                    
                   </div>

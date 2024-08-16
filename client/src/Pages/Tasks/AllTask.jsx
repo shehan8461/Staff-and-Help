@@ -57,6 +57,9 @@ export default function AllTask() {
   return (
     <div className='task-table-auto'>
       <h2 className="my-8 text-center font-bold text-4xl text-gray-800">All Tasks</h2>
+      <h2 id="select-task-topic" class="text-2xl font-extrabold text-center text-blue-700 bg-gray-100 p-4 rounded-lg shadow-lg">
+  Please select your task according to your assigned staff ID
+</h2>
 
       {tasks.length > 0 ? (
         <Table hoverable id='task-all-details-table'>

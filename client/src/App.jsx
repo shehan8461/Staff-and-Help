@@ -18,7 +18,6 @@ import UpdateStaff from './Pages/UpdateStaff';
 import ManagerSignUp from './Pages/Manager/ManagerSignUp';
 import ManagerSignin from './Pages/Manager/ManagerSignin';
 
-import AllStaffDetails from './Pages/AllDetails';
 import ManagerProfile from './Pages/Manager/ManagerProfile';
 
 import AddTask from './Pages/Tasks/AddTask';

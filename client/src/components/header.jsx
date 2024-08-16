@@ -13,7 +13,7 @@ export default function Header() {
           <Link to='/'><li>Home</li></Link>  
           <Link to='/manager-sign-in'><li>Manager Sign In</li></Link>  
           <Link to='/AddTask'><li>Add Task</li></Link>
-          <Link to='/AllTask'><li>All Task</li></Link>
+         
           <Link to='/about'><li>About</li></Link>
           
           <Link to='/profile'>
