@@ -4,6 +4,7 @@ import { Button, Modal, Table } from 'flowbite-react';
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../../firebase';
+import '../css/Alldetails.css'
 import logo from '../css/delete-icon.png';
 
 export default function ManagerAllDetails() {

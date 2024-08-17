@@ -31,6 +31,7 @@ import AdminAllTask from './Pages/Manager/AdminAllTask';
 
 
 
+
 export default function App() {
   return <BrowserRouter>
 <Header/>
@@ -47,6 +48,7 @@ export default function App() {
 
     <Route path="/sign-in" element={<Signin/>}></Route>
     <Route path="/AddStaff" element={<AddStaff/>}></Route>
+   
     <Route path="/sign-up" element={<SignUp/>}></Route>
    
 

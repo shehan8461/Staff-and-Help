@@ -1,114 +1,121 @@
-/* General Table Styling */
+/* Main container */
 .table-auto {
-  margin: 2rem auto;
-  max-width: 90%;
-  background-color: #f8f9fa;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light grey background */
   border-radius: 8px;
-  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Main Topic */
 .your-staff-information-main-topic {
-  font-size: 2.5rem;
+  font-size: 24px;
   font-weight: 700;
-  color: #343a40;
+  color: #2c3e50; /* Darker color for the main heading */
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 
-/* Table Head Styling */
-#one-details-table thead {
-  background-color: #007bff;
+/* Table */
+#one-details-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-#one-details-table thead th {
-  color: #0c0c0c;
+#one-details-table th,
+#one-details-table td {
   padding: 12px 15px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
   text-align: left;
-  background-color: #7ca7d4;
 }
 
-/* Table Body Styling */
-#one-details-body {
-  background-color: #ffffff;
+#one-details-table th {
+  background-color: #34495e; /* Dark blue-grey */
+  color: #ecf0f1; /* Light text */
+  font-weight: 600;
+  border-bottom: 2px solid #2c3e50;
 }
 
-#one-details-body td {
-  padding: 12px 15px;
-  font-size: 1.2rem;
-  color: #2d3135;
-  border-bottom: 1px solid #dee2e6;
-  background-color: #c9d2db;
+#one-details-table td {
+  background-color: #ecf0f1; /* Light grey for cells */
+  color: #2c3e50; /* Darker text for readability */
+  border-bottom: 1px solid #bdc3c7; /* Subtle border */
 }
 
-/* Alternating Row Colors */
-#one-details-body tr:nth-child(even) {
-  background-color: #f1f3f5;
-}
-
-#one-details-body tr:nth-child(odd) {
-  background-color: #ffffff;
-}
-
-/* Row Hover Effect */
 #table-row-your-details:hover {
-  background-color: #e9ecef;
-  cursor: pointer;
+  background-color: #bdc3c7; /* Hover effect with a light color change */
 }
 
-/* Image Styling */
-#one-details-body img {
-  border-radius: 50%;
-  border: 2px solid #007bff;
+/* Images */
+img {
+  border-radius: 50%; /* Make images circular */
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
 
 /* Buttons */
-#one-details-update-btn, #one-details-delete-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  border-radius: 50%;
-  transition: transform 0.2s ease-in-out;
+#one-details-update-btn img,
+#one-details-delete-btn img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
-#one-details-update-btn:hover, #one-details-delete-btn:hover {
-  transform: scale(1.1);
+#one-details-update-btn {
+  background-color: transparent;
+  border: none;
+  margin-right: 10px;
 }
 
-#one-details-update-btn img, #one-details-delete-btn img {
-  width: 25px;
-  height: 25px;
-  margin: auto;
+#one-details-delete-btn {
+  background-color: transparent;
+  border: none;
 }
 
-/* Modal Styling */
+#orders-for-delete {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+#failure {
+  background-color: #e74c3c; /* Red for delete */
+  border-color: #c0392b;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#failure:hover {
+  background-color: #c0392b;
+}
+
+#gray {
+  background-color: #7f8c8d; /* Gray for cancel */
+  border-color: #95a5a6;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#gray:hover {
+  background-color: #95a5a6;
+}
+
+/* Alert Modal */
 .text-center-alert {
   text-align: center;
 }
 
 .text-center-alert h3 {
-  font-size: 1.25rem;
-  margin-top: 1rem;
-  color: #212529;
+  color: #2c3e50;
+  margin: 15px 0;
 }
 
-#orders-for-delete {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-#failure {
-  background-color: #dc3545;
-  color: #fff;
-}
-
-#gray {
-  background-color: #6c757d;
-  color: #fff;
+.text-center-alert svg {
+  font-size: 40px;
+  color: #e74c3c; /* Red for warning icon */
 }
