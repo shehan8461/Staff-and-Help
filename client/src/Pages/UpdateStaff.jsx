@@ -134,20 +134,20 @@ function UpdateStaff(){
         <div className='staff-update-form'> 
  <h1 id="main-topic of form">Update Working Shedule</h1>
  <h1 id="sub-first-topic of form">Basic Information</h1>
-   <input type="text" placeholder='staffId'  onChange={handleInputChange} value={updatediscount?.staffId } />
-        <input type="text" placeholder='firstName'  onChange={handleInputChange} value={updatediscount?.firstName }/>
-        <input type="text" placeholder='lastName' onChange={handleInputChange} value={updatediscount?.lastName } />
-        <input type="text" placeholder='emaill'  onChange={handleInputChange} value={updatediscount?.emaill } />
-        <input type="text" placeholder='phoneNumber'  onChange={handleInputChange} value={updatediscount?.phoneNumber } />
+   <input type="text" placeholder='staffId'  name='staffId' onChange={handleInputChange} value={updatediscount?.staffId }readOnly />
+        <input type="text" placeholder='firstName'   name='firstName' onChange={handleInputChange} value={updatediscount?.firstName }/>
+        <input type="text" placeholder='lastName'  name='lastName' onChange={handleInputChange} value={updatediscount?.lastName } />
+        <input type="text" placeholder='emaill'   name='emaill' onChange={handleInputChange} value={updatediscount?.emaill } />
+        <input type="text" placeholder='phoneNumber'   name='phoneNumber' onChange={handleInputChange} value={updatediscount?.phoneNumber } />
         <h1 id="sub-second-topic of form">Work Information</h1>
-        <input type="text" placeholder='department'  onChange={handleInputChange} value={updatediscount?.department } />
-        <input type="text" placeholder='position' onChange={handleInputChange} value={updatediscount?.position }/>
+        <input type="text" placeholder='department'    name='department'onChange={handleInputChange} value={updatediscount?.department } />
+        <input type="text" placeholder='position'   name='position'onChange={handleInputChange} value={updatediscount?.position }/>
         <h1 id="sub-third-topic of form">Schedule Management</h1>
-        <input type="text" placeholder='assignedShifts' onChange={handleInputChange} value={updatediscount?.assignedShifts } />
-        <input type="text" placeholder='workSchedule' onChange={handleInputChange} value={updatediscount?.workSchedule }/>
+        <input type="text" placeholder='assignedShifts'  name='assignedShifts' onChange={handleInputChange} value={updatediscount?.assignedShifts } />
+        <input type="text" placeholder='workSchedule'   name='workSchedule'onChange={handleInputChange} value={updatediscount?.workSchedule }/>
     
 
-        <input type='file' ref={fileRef1} id='profilePicture' hidden accept='image/*' onChange={(e) => setImage1(e.target.files[0])} />
+        <input type='file' ref={fileRef1} id='profilePicture'   name='profilePicture' hidden accept='image/*' onChange={(e) => setImage1(e.target.files[0])} />
       
 
 

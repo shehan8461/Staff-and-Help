@@ -29,7 +29,7 @@ export default function AddStaff() {
     profilePicture: '',
   });
 
-  const [isNewStaffId, setIsNewStaffId] = useState(false); // New state to handle adding a new staff ID
+  const [isNewStaffId, setIsNewStaffId] = useState(false);
 
   useEffect(() => {
     fetchOrders();
@@ -106,7 +106,7 @@ export default function AddStaff() {
       navigate('/StaffDetailsProfile');
     } catch (error) {
       setError('Something went wrong!');
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -134,7 +134,7 @@ export default function AddStaff() {
               {order.staffId}
             </option>
           ))}
-          <option value="new">Add New Staff ID</option>
+          {orders.length === 0 && <option value="new">Add New Staff ID</option>}
         </select>
         
         {isNewStaffId && (
