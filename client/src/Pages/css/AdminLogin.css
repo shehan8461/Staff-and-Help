@@ -32,7 +32,10 @@ form lable {
     text-align: left;
     font-weight: 600;
 }
-
+#dacc{
+    color: red;
+    margin-top: 5%;
+}
 form input[type="text"] {
     width: 100%;
     padding: 12px;

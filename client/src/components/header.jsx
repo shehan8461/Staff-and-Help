@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className="nav"> 
       <div className='navbardetails'>
-        <Link to='/'><h1 className='twebpagename'>Shopping Buddy</h1></Link> 
+        <h1 className='twebpagename'>Shopping Buddy</h1>
         <h3 id='h3'>Shopping application for visually challenged.</h3>
         <ul className='other-topics'>
           <Link to='/'><li>Home</li></Link>  
