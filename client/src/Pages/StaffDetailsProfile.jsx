@@ -120,12 +120,12 @@ export default function StaffDetailsProfile() {
                 </Table.Cell>
                 <Table.Cell>
                   <Link to={`/update-staff/${order._id}`}>
-                    <Button id='one-details-update-btn' className="text-green-500"><img src={logo1} alt='logo1' width="10%" height="10%"/></Button>
+                    <Button id='staff-one-details-update-btn' className="text-green-500"><img src={logo1} alt='logo1' /></Button>
                   </Link>
-                  <Button id='one-details-delete-btn' className="text-red-500" onClick={() => {
+                  <Button id='staff-one-details-delete-btn' className="text-red-500" onClick={() => {
                     setShowModal(true);
                     setOrderIdToDelete(order._id);
-                  }}><img src={logo} alt='logo' width="10%" height="10%"></img></Button>
+                  }}><img src={logo} alt='logo'></img></Button>
                 </Table.Cell>
               </Table.Row>
             ))}
@@ -143,7 +143,7 @@ export default function StaffDetailsProfile() {
             <h3 >Are you sure you want to delete this order?</h3>
           </div>
           <div >
-<button id='orders-for-delete'>
+<button id='staff-orders-for-delete'>
             <Button color='failure' id='failure'onClick={handleDeleteOrder}>
               Yes, I am sure
           </Button>

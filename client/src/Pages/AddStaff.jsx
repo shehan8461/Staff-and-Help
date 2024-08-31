@@ -150,8 +150,26 @@ export default function AddStaff() {
         <input type="text" placeholder="Email" onChange={(e) => setFormData({ ...formData, emaill: e.target.value })} />
         <input type="text" placeholder="Phone Number" onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })} />
         <h1 id="sub-second-topic-of-form">Work Information</h1>
-        <input type="text" placeholder="Department" onChange={(e) => setFormData({ ...formData, department: e.target.value })} />
-        <input type="text" placeholder="Position" onChange={(e) => setFormData({ ...formData, position: e.target.value })} />
+        <label>Department</label>
+        <select onChange={(e) => setFormData({ ...formData, department: e.target.value })}>
+          <option value="">Select Department</option>
+          <option value="Human Resources">Human Resources</option>
+          <option value="Finance">Finance</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Sales">Sales</option>
+          <option value="Marketing">Marketing</option>
+        </select>
+
+        {/* Position Dropdown */}
+        <label>Position</label>
+        <select onChange={(e) => setFormData({ ...formData, position: e.target.value })}>
+          <option value="">Select Position</option>
+          <option value="Manager">Manager</option>
+          <option value="Team Lead">Team Lead</option>
+          <option value="Developer">Developer</option>
+          <option value="Accountant">Accountant</option>
+          <option value="Sales Executive">Sales Executive</option>
+        </select>
         <h1 id="sub-third-topic-of-form">Schedule Management</h1>
         <input type="text" placeholder="Assigned Shifts" onChange={(e) => setFormData({ ...formData, assignedShifts: e.target.value })} />
         <input type="text" placeholder="Work Schedule" onChange={(e) => setFormData({ ...formData, workSchedule: e.target.value })} />

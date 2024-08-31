@@ -1,84 +1,117 @@
 /* Main container styles */
 .nav {
-    background-color: #363231; /* Tailwind color for slate-400 */
-    height: 14rem; /* Equivalent to h-40 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Flex container styles */
-  .navbardetails {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 72rem; /* Equivalent to max-w-6xl */
-    width: 100%;
-    padding: 0.75rem; /* Equivalent to p-3 */
-  }
-  #h3{
-    color:rgb(199, 199, 199) ;
-    font-weight: 300; /* Equivalent to font-bold */
-     /* Equivalent to pt-10 */
-    font-size: 1.4rem;
-    position: absolute;
-    top:8%;
-    left: 35%;
-  }
-  /* Logo styles */
+  background-color: rgba(0, 0, 0, 0.8); /* Slight transparency to match the homepage overlay */
+  height: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem; /* Add padding to the sides */
+  position: relative;
+  z-index: 10; /* Ensure the header stays on top */
+  backdrop-filter: blur(5px); /* Match blur effect to homepage */
+  border-bottom: 2px solid #007BFF; /* Add a bottom border for a modern look */
+}
+
+/* Flex container styles */
+.navbardetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Restrict max width for better alignment */
+  margin: 0 auto; /* Center the content */
+  position: relative;
+}
+
+/* Header subtitle */
+#h3 {
+  color: #ddd;
+  font-weight: 300;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the text */
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+}
+
+/* Logo styles */
+.twebpagename {
+  font-weight: 700;
+  font-size: 2.5rem; /* Increase size for emphasis */
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Match the text shadow */
+  font-family: 'Poppins', sans-serif; /* Match font to homepage */
+  padding-left: 1rem; /* Add slight padding */
+}
+
+/* Navigation list styles */
+.other-topics {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.other-topics a {
+  text-decoration: none;
+  color: #fff; /* White text for contrast */
+  font-size: 1.1rem; /* Slightly increase font size */
+  font-family: 'Poppins', sans-serif; /* Match font to homepage */
+  transition: color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+}
+
+.other-topics li:hover {
+  color: #ffc107; /* Change hover color to match button styles */
+  transform: translateY(-2px); /* Add a slight lift on hover */
+}
+
+/* Profile picture styles */
+.h-7 {
+  height: 2.5rem; /* Increase size for better visibility */
+}
+
+.w-7 {
+  width: 2.5rem; /* Increase size for better visibility */
+}
+
+.rounded-full {
+  border-radius: 50%; /* Full border radius for circular image */
+}
+
+.object-cover {
+  object-fit: cover;
+  border: 2px solid #fff; /* Add border to match the theme */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
   .twebpagename {
-    font-weight: 700; /* Equivalent to font-bold */
-    padding-top: 2.5rem; /* Equivalent to pt-10 */
-    font-size: 2rem; /* Customize as needed */
-    color: #fff; /* White text for better contrast */
-    text-decoration: none;
-    padding-left: 2.5rem;
-    position: absolute;
-    top: 8%;
-    left:2%
+    font-size: 1.8rem; /* Reduce size for smaller screens */
+    padding-left: 0;
+    text-align: center;
   }
-  
-  /* Navigation list styles */
+
+  #h3 {
+    font-size: 1.2rem; /* Reduce subtitle size */
+    top: 60%;
+  }
+
   .other-topics {
-    position: absolute;
-    list-style: none;
-    top: 10%;
-    left:65%;
-    margin: 0;
-    display: flex;
-    gap: 2rem; /* Equivalent to gap-8 */
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    gap: 1rem; /* Reduce gap */
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
-  .other-topics a {
-    text-decoration: none;
-    color: inherit;
+
+  .nav {
+    height: auto; /* Allow the nav to adjust height */
+    padding: 1rem 2rem;
   }
-  
-  .other-topics li {
-    cursor: pointer;
-    font-size: 1rem;
-    color: #fff; /* White text for better contrast */
-    transition: color 0.3s;
-  }
-  
-  .other-topics li:hover {
-    color: #2563eb; /* Hover color (blue-600) */
-  }
-  
-  /* Profile picture styles */
-  .h-7 {
-    height: 1.75rem; /* Equivalent to h-7 */
-  }
-  
-  .w-7 {
-    width: 1.75rem; /* Equivalent to w-7 */
-  }
-  
-  .rounded-full {
-    border-radius: 9999px; /* Full border radius for circular image */
-  }
-  
-  .object-cover {
-    object-fit: cover;
-  }
-  
+}
