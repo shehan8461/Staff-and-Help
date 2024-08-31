@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button, Modal, Table } from 'flowbite-react';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
@@ -27,25 +28,6 @@ export default function AllTask() {
     }
   };
 
-  const handleDeleteTask = async () => {
-    try {
-      const res = await fetch(`/api/user/deletetask/${taskIdToDelete}`, {
-        method: 'DELETE',
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        console.log(data.message);
-      } else {
-        setTasks((prevTasks) =>
-          prevTasks.filter((task) => task._id !== taskIdToDelete)
-        );
-        setShowModal(false);
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
   const handleCompleteTask = (taskId) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
@@ -55,52 +37,41 @@ export default function AllTask() {
   };
 
   return (
-    <div className='task-table-auto'>
-      <h2 className="my-8 text-center font-bold text-4xl text-gray-800">All Tasks</h2>
-      <h2 id="select-task-topic" class="text-2xl font-extrabold text-center text-blue-700 bg-gray-100 p-4 rounded-lg shadow-lg">
-  Please select your task according to your assigned staff ID
-</h2>
+    <div className='task-list-container'>
+      <h2 className="task-list-heading">All Tasks</h2>
+      <h3 id="select-task-topic">Please select your task according to your assigned staff ID</h3>
 
       {tasks.length > 0 ? (
-        <Table hoverable id='task-all-details-table'>
-          <Table.Head id="task-all-details-table-head">
-            <Table.HeadCell>Staff ID</Table.HeadCell>
-            <Table.HeadCell>Task Name</Table.HeadCell>
-            <Table.HeadCell>Task Description</Table.HeadCell>
-            <Table.HeadCell>Start Date</Table.HeadCell>
-            <Table.HeadCell>End Date</Table.HeadCell>
-            <Table.HeadCell>Action</Table.HeadCell>
-          </Table.Head>
-          <Table.Body id="task-details-table-body">
-            {tasks.map((task) => (
-              <Table.Row key={task._id} >
-                <Table.Cell>{task.stafffid}</Table.Cell>
-                <Table.Cell>{task.task_name}</Table.Cell>
-                <Table.Cell>{task.task_description}</Table.Cell>
-                <Table.Cell>{task.start_date}</Table.Cell>
-                <Table.Cell>{task.end_date}</Table.Cell>
-                <Table.Cell>
-                  <Link to={`/update-task/${task._id}`} id='task-one-details-update-btn'    onClick={() => handleCompleteTask(task._id)}>
-                  
-                      Get My Task
-                   
-                  </Link>
-                  <button
-                      id="task-one-details-statues-btn"
-                      style={{ backgroundColor: task.is_complete ? 'red' : 'yellow' }}
-                    >
-                   {task.is_complete ? 'Completed' : 'Pending'}
-                  </button>
-                  
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
+        <div className='task-list'>
+          {tasks.map((task) => (
+            <div key={task._id} className='task-item'>
+              <div className='task-item-details'>
+                <h4>{task.task_name}</h4>
+                <p><strong>Staff ID:</strong> {task.stafffid}</p>
+                <p><strong>Description:</strong> {task.task_description}</p>
+                <p><strong>Start Date:</strong> {task.start_date}</p>
+                <p><strong>End Date:</strong> {task.end_date}</p>
+              </div>
+              <div className='task-item-actions'>
+                <Link
+                  to={`/update-task/${task._id}`}
+                  className='task-item-update-btn'
+                  onClick={() => handleCompleteTask(task._id)}
+                >
+                  Get My Task
+                </Link>
+                <button
+                  className={`task-item-status-btn ${task.status === 'completed' ? 'completed' : 'pending'}`}
+                >
+                  {task.status === 'completed' ? 'Completed' : 'Pending'}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       ) : (
         <p>You have no tasks yet!</p>
       )}
-
     </div>
   );
 }

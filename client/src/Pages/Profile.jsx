@@ -153,7 +153,7 @@ export default function Profile() {
         <span onClick={handleSignOut}className='user-profile-signout-button'>Sign Out</span>
         <Link id='navigate-button-addshedule' to='/AddStaff'>Add Shedule</Link> 
         <Link id='my-details-button' to='/StaffDetailsProfile'>My Details</Link> 
-        <Link id='all-task-button' to='/AllTask'>All Tasks</Link> 
+        <Link id='all-task-button' to='/AllTask'>Tasks</Link> 
       </div>
         <p className='user-profile-errors-button'>{error && 'Something went wrong'}</p>
         <p className='user-profile-update-success-button'>{updateSuccess  && 'user  updated successfully'}</p>

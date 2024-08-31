@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css'; // Custom CSS file for styling
+import './css/Home.css'; // Custom CSS file for styling
 import homepageImage from './images/homepage-image.jpg'; // Corrected import
 
 function Home() {
