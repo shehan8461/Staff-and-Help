@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import '../css/AddTask.css'
+import { useNavigate } from "react-router-dom";
 
 function AddTask() {
     const [orders, setOrders] = useState([]);
+    const navigate=useNavigate();
     const [order, setOrder] = useState({
         stafffid: "",
         task_name: "",
@@ -52,6 +54,7 @@ function AddTask() {
                 throw new Error(data.message || 'Failed to create task');
             }
             alert('successfully send to task')
+            navigate('/AdminAllTask')
             // Optionally, reset the form or give feedback to the user
         } catch (error) {
             console.error('Something went wrong!', error.message);

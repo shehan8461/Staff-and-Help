@@ -57,7 +57,7 @@ export default function ManagerSignin() {
 return(
    
 <div className='login-form'>
-   
+   <h2 id='login-topic'><b>Login</b></h2>
 <form onSubmit={handleSubmit}>
 <lable > Email:</lable>
 <input type="text" id="email" name="email" onChange={handleOnChange}/><br></br>
@@ -66,7 +66,7 @@ return(
 
  <br></br>
  <button>Log in</button>
- <p id='dacc'>Don't have an Account?Please Register</p>
+
 </form>
 
 

@@ -36,6 +36,11 @@ form lable {
     color: red;
     margin-top: 5%;
 }
+#login-topic{
+    position: absolute;
+    top:40%;
+    left: 47%;
+}
 form input[type="text"] {
     width: 100%;
     padding: 12px;

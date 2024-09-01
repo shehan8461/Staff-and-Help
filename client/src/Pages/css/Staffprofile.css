@@ -8,25 +8,29 @@ body {
 
 .table-auto {
   margin: 40px auto;
-  width: 90%;
+ width: 130%;
+ padding: 5%;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
   overflow: hidden;
+ 
 }
 
 .your-staff-information-main-topic {
   text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: #343a40;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
 }
 
 #one-details-table {
   width: 100%;
   border-collapse: collapse;
   border-radius: 5px;
+
 }
 
 #one-details-table thead {
@@ -35,13 +39,14 @@ body {
 }
 
 #one-details-table th, #one-details-table td {
-  padding: 12px 15px;
+  padding: 15px;
   text-align: left;
   border-bottom: 1px solid #dee2e6;
+  font-size: 1rem;
 }
 
 #one-details-table th {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   background-color:  #0056b3;
 }
@@ -52,7 +57,6 @@ body {
 
 #one-details-body tr:hover {
   background-color: #e9ecef;
-  width: 100%;
 }
 
 #table-row-your-details td {
@@ -60,37 +64,76 @@ body {
 }
 
 #one-details-body img {
-  border-radius: 40%;
+  border-radius: 10%;
   height: 80px;
-  width: 100px;
+  width: 80px;
   object-fit: cover;
 }
 
+/* Flexbox for the action buttons */
 .flex {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Action Cell Styling */
+.action-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  min-width: 15px; /* Adjusted width for the action column */
 }
 
 /* Action Buttons Styling */
-#staff-one-details-update-btn,
-#staff-one-details-delete-btn {
-  padding: 8px;
-  margin-right: 5px;
-  border-radius: 50%;
-  transition: transform 0.2s;
+#staff-one-details-update-btn, #staff-one-details-delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#staff-one-details-update-btn img,
+#staff-one-details-delete-btn img {
+  width: 24px; /* Adjusted size for better visibility */
+  height: 34px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+#staff-one-details-update-btn:hover img,
+#staff-one-details-delete-btn:hover img {
+  transform: scale(1.2);
 }
 
 #staff-one-details-update-btn:hover,
 #staff-one-details-delete-btn:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#staff-one-details-update-btn img,
-#staff-one-details-delete-btn img {
-  width: 60px;
-  height: 40px;
+#staff-one-details-update-btn {
+  background-color: #007bff;
+   /* Rounded button for a modern look */
+}
 
+#staff-one-details-delete-btn {
+  background-color: #dc3545;
+   /* Rounded button for a modern look */
+}
+
+#staff-one-details-update-btn:hover {
+  background-color: #0056b3;
+}
+
+#staff-one-details-delete-btn:hover {
+  background-color: #c82333;
 }
 
 /* Modal Styling */
@@ -100,7 +143,7 @@ body {
 }
 
 .text-center-alert h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-top: 10px;
   color: #dc3545;
@@ -115,11 +158,15 @@ body {
 #staff-orders-for-delete #failure {
   background-color: #dc3545;
   border-color: #dc3545;
+  padding: 10px 20px;
+  border-radius: 8px;
 }
 
 #staff-orders-for-delete #gray {
   background-color: #6c757d;
   border-color: #6c757d;
+  padding: 10px 20px;
+  border-radius: 8px;
 }
 
 #staff-orders-for-delete #failure:hover,

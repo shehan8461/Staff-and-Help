@@ -170,9 +170,10 @@ export default function AddStaff() {
           <option value="Accountant">Accountant</option>
           <option value="Sales Executive">Sales Executive</option>
         </select>
-        <h1 id="sub-third-topic-of-form">Schedule Management</h1>
-        <input type="text" placeholder="Assigned Shifts" onChange={(e) => setFormData({ ...formData, assignedShifts: e.target.value })} />
-        <input type="text" placeholder="Work Schedule" onChange={(e) => setFormData({ ...formData, workSchedule: e.target.value })} />
+        <h1 id="sub-third-topic-of-form">Manage Shedule</h1>
+        <input type="time" placeholder="Assigned Shifts" onChange={(e) => setFormData({ ...formData, assignedShifts: e.target.value })} />        <p>to</p>
+
+        <input type="time" placeholder="Work Schedule" onChange={(e) => setFormData({ ...formData, workSchedule: e.target.value })} />
         
         <input type="file" ref={fileRef1} id="profilePicture" hidden accept="image/*" onChange={(e) => setImage1(e.target.files[0])} />
         <div>

@@ -18,14 +18,14 @@ h2 {
 #all-details-table {
   width: 100%;
   border-collapse: collapse;
-  background-color:  #548ca3;
+  background-color:  #d6f0fb;
   overflow: hidden;
 
   border-radius: 15px;
 }
 
 #all-details-table-head th {
-  background-color: #0056b3;
+  background-color: #2e8cf0;
   color: #ffffff;
   text-align: left;
   padding: 12px 15px;
@@ -41,7 +41,7 @@ h2 {
 }
 
 #all-details-table-body tr:hover {
-  background-color: #d3ddec;
+  background-color: #c6d4e9;
 }
 
 #all-details-table-body td img {

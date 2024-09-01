@@ -15,7 +15,7 @@
 /* Profile header */
 .user-profile-name {
   font-size: 2.5em; /* Larger size for a more prominent title */
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
   color: #333; /* Dark grey color for contrast */
   font-weight: 600; /* Bold weight for emphasis */
@@ -151,4 +151,56 @@
 #my-details-button:hover,
 #all-task-button:hover {
   opacity: 0.8;
+}
+#staff-id-showing {
+  position: absolute;
+  top:37%;
+  left: 63%;
+  margin-top: 20px;
+  padding: 8px;
+  border: 1px solid #0956dc;
+  border-radius: 8px;
+  background-color: #3d88f1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
+  max-width: 200px;
+  color: white;
+  margin: 20px auto;
+}
+
+#staff-id-showing h4 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#staff-id-showing .staff-id-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#staff-id-showing .staff-id-list li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#staff-id-showing .staff-id-list li:hover {
+  background-color: #e9ecef;
+  border-color: #ccc;
+  cursor: pointer;
+}
+
+#staff-id-showing .staff-id-list li span {
+  font-weight: 800;
 }

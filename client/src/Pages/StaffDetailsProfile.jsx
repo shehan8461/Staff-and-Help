@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../firebase'; // Adjust the path as per your project structure
 import './css/Staffprofile.css';
-import logo from './css/delete-icon.png'
-import logo1 from './css/update-icon.png'
+import { FaTrash, FaEdit } from 'react-icons/fa'; // Importing Font Awesome icons
 
 export default function StaffDetailsProfile() {
   const { currentUser } = useSelector((state) => state.user);
@@ -80,13 +79,12 @@ export default function StaffDetailsProfile() {
 
   return (
     <div className='table-auto'>
-   <h2 className="your-staff-information-main-topic">Staff Information</h2>
-
+      <h2 className="your-staff-information-main-topic">Staff Information</h2>
 
       {orders.length > 0 ? (
         <Table id='one-details-table'>
           <Table.Head>
-            <Table.HeadCell>staff Id</Table.HeadCell>
+            <Table.HeadCell>Staff Id</Table.HeadCell>
             <Table.HeadCell>First Name</Table.HeadCell>
             <Table.HeadCell>Last Name</Table.HeadCell>
             <Table.HeadCell>Email</Table.HeadCell>
@@ -94,17 +92,17 @@ export default function StaffDetailsProfile() {
             <Table.HeadCell>Department</Table.HeadCell>
             <Table.HeadCell>Position</Table.HeadCell>
             <Table.HeadCell>Assigned Shifts</Table.HeadCell>
-            <Table.HeadCell>WorkSchedule</Table.HeadCell>
+            <Table.HeadCell>Work Schedule</Table.HeadCell>
             <Table.HeadCell>Photos</Table.HeadCell>
-            <Table.HeadCell> Action</Table.HeadCell>
+            <Table.HeadCell>Action</Table.HeadCell>
           </Table.Head>
           <Table.Body id='one-details-body'>
             {orders.map((order) => (
-              <Table.Row key={order._id} id='table-row-your-details' >
+              <Table.Row key={order._id} id='table-row-your-details'>
                 <Table.Cell>{order.staffId}</Table.Cell>
                 <Table.Cell>{order.firstName}</Table.Cell>
                 <Table.Cell>{order.lastName}</Table.Cell>
-                <Table.Cell>{order.emaill}</Table.Cell>
+                <Table.Cell>{order.email}</Table.Cell>
                 <Table.Cell>{order.phoneNumber}</Table.Cell>
                 <Table.Cell>{order.department}</Table.Cell>
                 <Table.Cell>{order.position}</Table.Cell>
@@ -115,17 +113,20 @@ export default function StaffDetailsProfile() {
                     {order.profilePicture && (
                       <img src={order.profilePicture} alt="Profile" className="h-15 w-10 m--10 p-0 object-cover rounded" />
                     )}
-                   
                   </div>
                 </Table.Cell>
-                <Table.Cell>
+                <Table.Cell className="action-cell">
                   <Link to={`/update-staff/${order._id}`}>
-                    <Button id='staff-one-details-update-btn' className="text-green-500"><img src={logo1} alt='logo1' /></Button>
+                    <Button id='staff-one-details-update-btn'>
+                      <FaEdit />
+                    </Button>
                   </Link>
-                  <Button id='staff-one-details-delete-btn' className="text-red-500" onClick={() => {
+                  <Button id='staff-one-details-delete-btn' onClick={() => {
                     setShowModal(true);
                     setOrderIdToDelete(order._id);
-                  }}><img src={logo} alt='logo'></img></Button>
+                  }}>
+                    <FaTrash />
+                  </Button>
                 </Table.Cell>
               </Table.Row>
             ))}
@@ -139,18 +140,16 @@ export default function StaffDetailsProfile() {
         <Modal.Header />
         <Modal.Body>
           <div className="text-center-alert">
-            <HiOutlineExclamationCircle  />
-            <h3 >Are you sure you want to delete this order?</h3>
+            <HiOutlineExclamationCircle />
+            <h3>Are you sure you want to delete this order?</h3>
           </div>
-          <div >
-<button id='staff-orders-for-delete'>
-            <Button color='failure' id='failure'onClick={handleDeleteOrder}>
+          <div id='staff-orders-for-delete'>
+            <Button color='failure' id='failure' onClick={handleDeleteOrder}>
               Yes, I am sure
-          </Button>
+            </Button>
             <Button color='gray' id='gray' onClick={() => setShowModal(false)}>
               No, cancel
             </Button>
-            </button>
           </div>
         </Modal.Body>
       </Modal>

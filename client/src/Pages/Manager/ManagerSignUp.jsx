@@ -57,6 +57,7 @@ function ManagerSignUp() {
 
     return (
         <div id="package-body">
+        
             <div className="add-order">
                 <div id="package-form">
                     <h2><b>Admin</b></h2>

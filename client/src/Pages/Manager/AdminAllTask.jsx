@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Button, Modal, Table } from 'flowbite-react';
+import { Button, Modal } from 'flowbite-react';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import logo from '../css/delete-icon.png';
-import '../css/AllTasks.css';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/AdminTasks.css';
 
 export default function AdminAllTask() {
-  const [orders, setOrders] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [orderIdToDelete, setOrderIdToDelete] = useState('');
   const [showModal, setShowModal] = useState(false);
@@ -37,92 +37,82 @@ export default function AdminAllTask() {
       if (!res.ok) {
         console.log('Delete failed:', data.message);
       } else {
-        setOrders((prevOrders) =>
-          prevOrders.filter((order) => order._id !== orderIdToDelete)
+        setTasks((prevTasks) =>
+          prevTasks.filter((task) => task._id !== orderIdToDelete)
         );
-        setOrderIdToDelete('');  // Reset orderIdToDelete after deletion
-        console.log('Order deleted successfully');
+        setOrderIdToDelete(''); // Reset orderIdToDelete after deletion
+        console.log('Task deleted successfully');
       }
       setShowModal(false);
     } catch (error) {
-      console.log('Error deleting order:', error.message);
+      console.log('Error deleting task:', error.message);
     }
   };
 
   const handleCompleteTask = (taskId) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
-        task._id === taskId ? { ...task, status: 'completed' } : task
+        task._id === taskId ? { ...task, is_complete: true } : task
       )
     );
   };
 
   return (
-    <div className='task-table-auto'>
-      <h2 className="my-8 text-center font-bold text-4xl text-gray-800">All Tasks</h2>
+    <div className="task-overview">
+      <h2 className="overview-heading">All Tasks</h2>
 
       {tasks.length > 0 ? (
-        <Table hoverable id='task-all-details-table'>
-          <Table.Head id="task-all-details-table-head">
-            <Table.HeadCell>Staff ID</Table.HeadCell>
-            <Table.HeadCell>Task Name</Table.HeadCell>
-            <Table.HeadCell>Task Description</Table.HeadCell>
-            <Table.HeadCell>Start Date</Table.HeadCell>
-            <Table.HeadCell>End Date</Table.HeadCell>
-            <Table.HeadCell>Action</Table.HeadCell>
-          </Table.Head>
-          <Table.Body id="task-details-table-body">
-            {tasks.map((task) => (
-              <Table.Row key={task._id} >
-                <Table.Cell>{task.stafffid}</Table.Cell>
-                <Table.Cell>{task.task_name}</Table.Cell>
-                <Table.Cell>{task.task_description}</Table.Cell>
-                <Table.Cell>{task.start_date}</Table.Cell>
-                <Table.Cell>{task.end_date}</Table.Cell>
-                <Table.Cell>
-                  <Link to={`/update-task/${task._id}`} id='task-one-details-update-btn'    onClick={() => handleCompleteTask(task._id)}>
-                  
-                      Get My Task
-                   
-                  </Link>
-                  <button
-                      id="task-one-details-statues-btn"
-                      style={{ backgroundColor: task.is_complete ? 'red' : 'yellow' }}
-                    >
-                   {task.is_complete ? 'Completed' : 'Pending'}
-                  </button>
-                  <Button id="al-details-delete-btn" onClick={() => {
-                      setShowModal(true);
-                      setOrderIdToDelete(task._id);
-                    }}>
-                      <img src={logo} alt='logo' width="10%" height="10%"></img>
-                    </Button>
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-             ) : (
-              <p>You have no orders yet!</p>
-            )}
-    
-            <Modal show={showModal} onClose={() => setShowModal(false)} popup size='md'>
-              <Modal.Header />
-              <Modal.Body>
-                <div className="text-center-alert">
-                  <HiOutlineExclamationCircle className="mx-auto mb-2 text-4xl text-red-600" />
-                  <h3>Are you sure you want to delete this Staff Member?</h3>
-                </div>
-                <div className="modal-button-group flex justify-center gap-4 mt-4">
-                  <Button color="failure" onClick={handleDeleteOrder}>
-                    Yes, I am sure
-                  </Button>
-                  <Button color="gray" onClick={() => setShowModal(false)}>
-                    No, cancel
-                  </Button>
-                </div>
-              </Modal.Body>
-            </Modal>
+        <ul className="task-list-container">
+          {tasks.map((task) => (
+            <li key={task._id} className="task-item-card">
+              <div className="task-info">
+                <p className="task-info-detail"><b><strong>Staff ID:</strong><b>{task.stafffid}</b> </b></p>
+                <p className="task-info-detail"><strong>Task Name:</strong> {task.task_name}</p>
+                <p className="task-info-detail"><strong>Task Description:</strong> {task.task_description}</p>
+                <p className="task-info-detail"><strong>Start Date:</strong> {task.start_date}</p>
+                <p className="task-info-detail"><strong>End Date:</strong> {task.end_date}</p>
+              </div>
+              <div className="task-action-buttons">
+                <button
+                  className={`status-button ${task.is_complete ? 'completed-status' : 'pending-status'}`}
+                  onClick={() => handleCompleteTask(task._id)}
+                >
+                  {task.is_complete ? 'Completed' : 'Pending'}
+                </button>
+                <Button
+                  className="delete-task-button"
+                  onClick={() => {
+                    setShowModal(true);
+                    setOrderIdToDelete(task._id);
+                  }}
+                >
+                  <img src={logo} alt="delete icon" className="delete-icon-img" />
+                </Button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="no-tasks-message">You have no tasks yet!</p>
+      )}
+
+      <Modal show={showModal} onClose={() => setShowModal(false)} popup size="md">
+        <Modal.Header />
+        <Modal.Body>
+          <div className="modal-content-wrapper">
+            <HiOutlineExclamationCircle className="modal-warning-icon" />
+            <h3 className="modal-warning-text">Are you sure you want to delete this Task?</h3>
+          </div>
+          <div className="modal-action-buttons">
+            <Button color="danger" onClick={handleDeleteOrder} className="modal-confirm-button">
+              Yes, I am sure
+            </Button>
+            <Button color="secondary" onClick={() => setShowModal(false)} className="modal-cancel-button">
+              No, cancel
+            </Button>
+          </div>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }
