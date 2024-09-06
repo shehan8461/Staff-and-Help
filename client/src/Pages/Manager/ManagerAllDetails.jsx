@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Modal, Table } from 'flowbite-react';
+import { Button, Modal } from 'flowbite-react';
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { getDownloadURL, ref } from 'firebase/storage';
 import { storage } from '../../firebase';
-import '../css/Alldetails.css'
+import '../css/Alldetails.css';
 import logo from '../css/delete-icon.png';
 
 export default function ManagerAllDetails() {
@@ -66,7 +66,7 @@ export default function ManagerAllDetails() {
         setOrders((prevOrders) =>
           prevOrders.filter((order) => order._id !== orderIdToDelete)
         );
-        setOrderIdToDelete('');  // Reset orderIdToDelete after deletion
+        setOrderIdToDelete('');
         console.log('Order deleted successfully');
       }
       setShowModal(false);
@@ -78,6 +78,7 @@ export default function ManagerAllDetails() {
   return (
     <div className="p-4">
       <div id="admin-page-names" className="flex justify-between mb-4">
+        <h2 id='allstafftopic'>All Staff Members</h2>
         <Link id="add-task-page-btn" to="/AdminAllTask">
           All Task
         </Link>
@@ -86,68 +87,48 @@ export default function ManagerAllDetails() {
         </Link>
       </div>
 
-      <div className="overflow-x-auto">
-        <h2 className="my-8 text-center font-bold text-4xl text-gray-800">All Staff Information</h2>
-
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {orders.length > 0 ? (
-          <Table hoverable id="all-details-table">
-            <Table.Head id="all-details-table-head">
-              {/* Table Headings */}
-              <Table.HeadCell>Staff ID</Table.HeadCell>
-              <Table.HeadCell>First Name</Table.HeadCell>
-              <Table.HeadCell>Last Name</Table.HeadCell>
-              <Table.HeadCell>Email</Table.HeadCell>
-              <Table.HeadCell>Phone Number</Table.HeadCell>
-              <Table.HeadCell>Department</Table.HeadCell>
-              <Table.HeadCell>Position</Table.HeadCell>
-              <Table.HeadCell>Assigned Shifts</Table.HeadCell>
-              <Table.HeadCell>Work Schedule</Table.HeadCell>
-              <Table.HeadCell>Photos</Table.HeadCell>
-              <Table.HeadCell>Action</Table.HeadCell>
-            </Table.Head>
-            <Table.Body id="all-details-table-body">
-              {orders.map((order) => (
-                <Table.Row key={order._id}>
-                  {/* Table Cells */}
-                  <Table.Cell>{order.staffId}</Table.Cell>
-                  <Table.Cell>{order.firstName}</Table.Cell>
-                  <Table.Cell>{order.lastName}</Table.Cell>
-                  <Table.Cell>{order.emaill}</Table.Cell>
-                  <Table.Cell>{order.phoneNumber}</Table.Cell>
-                  <Table.Cell>{order.department}</Table.Cell>
-                  <Table.Cell>{order.position}</Table.Cell>
-                  <Table.Cell>{order.assignedShifts}</Table.Cell>
-                  <Table.Cell>{order.workSchedule}</Table.Cell>
-                  <Table.Cell>
-                    <div className="flex gap-2">
-                      {order.profilePicture && (
-                        <img src={order.profilePicture} alt="Profile" className="h-12 w-12 object-cover rounded" />
-                      )}
-                    </div>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Button id="al-details-delete-btn" onClick={() => {
-                      setShowModal(true);
-                      setOrderIdToDelete(order._id);
-                    }}>
-                      <img src={logo} alt='logo' width="10%" height="10%"></img>
-                    </Button>
-                  </Table.Cell>
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table>
+          orders.map((order) => (
+            <div key={order._id} className="card bg-white shadow-lg rounded-lg p-6">
+              <div className="card-header flex items-center justify-between">
+                <h3 className="text-xl font-bold">{order.firstName} {order.lastName}</h3>
+                <Button
+                  id="card-delete-btn"
+                  onClick={() => {
+                    setShowModal(true);
+                    setOrderIdToDelete(order._id);
+                  }}
+                  className="delete-button"
+                >
+                  <img src={logo} alt="Delete" width="20" height="20" />
+                </Button>
+              </div>
+              <div className="card-body">
+                <p><strong>Staff ID:</strong> {order.staffId}</p>
+                <p><strong>Email:</strong> {order.emaill}</p>
+                <p><strong>Phone Number:</strong> {order.phoneNumber}</p>
+                <p><strong>Department:</strong> {order.department}</p>
+                <p><strong>Position:</strong> {order.position}</p>
+                <p><strong>Assigned Shifts:</strong> {order.assignedShifts}</p>
+                <p><strong>Work Schedule:</strong> {order.workSchedule}</p>
+                {order.profilePicture && (
+                  <img src={order.profilePicture} alt="Profile" className="h-20 w-20 object-cover rounded mt-4" />
+                )}
+              </div>
+            </div>
+          ))
         ) : (
           <p>You have no orders yet!</p>
         )}
+      </div>
 
-        <Modal show={showModal} onClose={() => setShowModal(false)} popup size='md'>
-          <Modal.Header />
-          <Modal.Body>
-            <div className="text-center-alert">
-              <HiOutlineExclamationCircle className="mx-auto mb-2 text-4xl text-red-600" />
-              <h3>Are you sure you want to delete this Staff Member?</h3>
-            </div>
+      <Modal show={showModal} onClose={() => setShowModal(false)} popup size="md">
+        <Modal.Header />
+        <Modal.Body>
+          <div className="text-center">
+            <HiOutlineExclamationCircle className="mx-auto mb-2 text-4xl text-red-600" />
+            <h3>Are you sure you want to delete this Staff Member?</h3>
             <div className="modal-button-group flex justify-center gap-4 mt-4">
               <Button color="failure" onClick={handleDeleteOrder}>
                 Yes, I am sure
@@ -156,9 +137,9 @@ export default function ManagerAllDetails() {
                 No, cancel
               </Button>
             </div>
-          </Modal.Body>
-        </Modal>
-      </div>
+          </div>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }

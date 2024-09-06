@@ -35,11 +35,11 @@ import Home from './Pages/Home'
 
 export default function App() {
   return <BrowserRouter>
-<Header/>
+
   <Routes>
-  <Route path="/" element={<Home/>}></Route>
+  <Route path="/" element={<div><Header/><Home/></div>}></Route>
     <Route path="/login-manager" element={<ManagerAllDetails/>}></Route>
-    <Route path="/AllTask" element={<AllTask/>}></Route>
+    <Route path="/AllTask" element={<div><Header/><AllTask/></div>}></Route>
     <Route path="/AdminAllTask" element={<AdminAllTask/>}></Route>
     
     <Route path="/manager-sign-up" element={<ManagerSignUp/>}></Route>
@@ -47,10 +47,10 @@ export default function App() {
     <Route path="/AddTask" element={<AddTask/>}></Route>
    
 
-    <Route path="/sign-in" element={<Signin/>}></Route>
-    <Route path="/AddStaff" element={<AddStaff/>}></Route>
+    <Route path="/sign-in" element={<div><Header/><Signin/></div>}></Route>
+    <Route path="/AddStaff" element={<div><Header/><AddStaff/></div>}></Route>
    
-    <Route path="/sign-up" element={<SignUp/>}></Route>
+    <Route path="/sign-up" element={<div><Header/><SignUp/></div>}></Route>
    
 
     <Route path="/onepet/:id" element={<OnePetShow/>}></Route>
@@ -62,11 +62,11 @@ export default function App() {
 
     <Route element={<PrivateRoutes/>}>
 
-    <Route path="/profile" element={<Profile/>}></Route>
+    <Route path="/profile" element={<div><Header/><Profile/></div>}></Route>
     <Route path="/ManagerProfile" element={<ManagerProfile/>}></Route>
-    <Route path="/StaffDetailsProfile" element={<StaffDetailsProfile/>}></Route>
-    <Route path="/update-staff/:id" element={<UpdateStaff/>}></Route>
-    <Route path="/update-task/:id" element={<UpdateTask/>}></Route>
+    <Route path="/StaffDetailsProfile" element={<div><Header/><StaffDetailsProfile/></div>}></Route>
+    <Route path="/update-staff/:id" element={<div><Header/><UpdateStaff/></div>}></Route>
+    <Route path="/update-task/:id" element={<div><Header/><UpdateTask/></div>}></Route>
 
 
    

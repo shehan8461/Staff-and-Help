@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button, Modal, Table } from 'flowbite-react';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
@@ -28,12 +27,33 @@ export default function AllTask() {
     }
   };
 
-  const handleCompleteTask = (taskId) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task._id === taskId ? { ...task, status: 'completed' } : task
-      )
-    );
+  const handleCompleteTask = async (taskId) => {
+    try {
+      const response = await fetch(`/api/user/updateTask`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: taskId,
+          status: 'completed', // Update task status to completed
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        // Update the local state to reflect the status change
+        setTasks((prevTasks) =>
+          prevTasks.map((task) =>
+            task._id === taskId ? { ...task, status: 'completed' } : task
+          )
+        );
+      } else {
+        console.error(data.message);
+      }
+    } catch (error) {
+      console.error('Error updating task:', error);
+    }
   };
 
   return (

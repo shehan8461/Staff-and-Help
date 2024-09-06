@@ -41,7 +41,6 @@ function UpdateTask() {
 
   const handleUpdate = async () => {
     try {
-      task.is_complete=true;
       const response = await fetch(`/api/user/updateTask`, {
         method: 'PUT',
         headers: {
@@ -86,7 +85,7 @@ function UpdateTask() {
       <label htmlFor="end_date">End Date:</label>
       <input type="date" id="end_date" name="end_date" onChange={handleInputChange} value={task?.end_date} />
 
-      <button className='update-btn' onClick={handleUpdate} >Complete My Task</button>
+      <button className='update-btn' onClick={handleUpdate}>Complete My Task</button>
     </div>
   );
 }
