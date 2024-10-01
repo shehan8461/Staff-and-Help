@@ -24,7 +24,7 @@ router.put("/updateStaff",verifyToken,updateStaff)
 //task
 router.delete("/deletetask/:id",deletetask)
 router.get('/getTask/:id', getTask);//for update fetch data
-router.put("/updateTask",verifyToken,updateTask)
+router.put("/updateTask",updateTask)
 
 
 

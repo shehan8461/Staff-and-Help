@@ -1,21 +1,4 @@
 /* General Styling */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 0;
-}
-
-.table-auto {
-  margin: 40px auto;
- width: 130%;
- padding: 5%;
-  background-color: #fff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  overflow: hidden;
- 
-}
 
 .your-staff-information-main-topic {
   text-align: center;
@@ -27,7 +10,8 @@ body {
 }
 
 #one-details-table {
-  width: 100%;
+  width: 40%;
+  margin-left: 10%;
   border-collapse: collapse;
   border-radius: 5px;
 

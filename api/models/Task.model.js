@@ -22,11 +22,6 @@ const TaskSchema = new mongoose.Schema({
       
     },
 
-    is_complete:{
-        type:Boolean,
-        default:false
-
-    },
     start_date: {
         type: String,
         required: true,
@@ -37,9 +32,15 @@ const TaskSchema = new mongoose.Schema({
         required: true,
       
     },
+    
+    is_complete:{
+        type:Boolean,
+        default:false
+
+    },
    
 }, { timestamps: true });
 
-const Task = mongoose.model("Tasks", TaskSchema);
+const Task = mongoose.model("Ta", TaskSchema);
 
 export default Task;

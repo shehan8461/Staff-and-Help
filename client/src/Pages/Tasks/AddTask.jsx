@@ -10,7 +10,8 @@ function AddTask() {
         task_name: "",
         task_description: "",
         start_date: "",
-        end_date: ""
+        end_date: "",
+     
     });
 
     useEffect(() => {
