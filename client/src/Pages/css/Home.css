@@ -1,99 +1,317 @@
+/* General styles for the home container */
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-    min-height: 100vh;
-    background-image: url('../images/homepage-image.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    position: relative;
-    z-index: 1;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  min-height: 100vh;
+  background-image: url('../images/homepage-image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay effect */
+.home-container::after {
+  content: '';
+  position: absolute;
+   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.7)
+  ); /* Gradient for depth effect */
+  z-index: -1;
+  backdrop-filter: blur(20px) brightness(0.8); /* Adds a slight brightness effect */
+  transition: all 0.5s ease-in-out; /* Smooth transitions for interactive effects */
+  opacity: 0.9; /* Slight transparency for a soft overlay */
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5); /* Subtle inner shadow for a more immersive effect */
+}
+
+/* Optional hover effect for added interaction */
+.home-container:hover::after {
+  backdrop-filter: blur(25px) brightness(0.7);
+  opacity: 1; /* Full visibility on hover */
+}
+
+
+/* Main content styling */
+.main-content {
+  color: #f1f1f1; /* Softer white text for easier readability */
+  z-index: 2;
+  text-align: center;
+  max-width: 900px; /* Increased width for larger content area */
+  margin: 30px auto; /* More spacing at the top and bottom */
+  padding: 40px; /* Increased padding for a more spacious look */
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.5)); /* Dynamic gradient for a richer background */
+  border-radius: 20px; /* More rounded corners for a softer, modern look */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow for better depth */
+  backdrop-filter: blur(8px); /* Subtle blur effect for a glassy look */
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Light border to enhance definition */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animations */
   
-  .home-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Reduce opacity for a lighter overlay */
-    z-index: -1;
-    backdrop-filter: blur(2px); /* Reduce the blur effect */
+}
+
+/* Hover effect to add interactivity */
+.main-content:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); /* Enhanced shadow on hover for more emphasis */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .main-content {
+    max-width: 100%; /* Full-width on smaller screens */
+    padding: 30px; /* Adjusted padding for smaller devices */
   }
-  
-  .home-image img {
-    display: none; /* Hide the main image since it's now used as a background */
-  }
-  
-  .home-content {
-    color: #fff;
-    z-index: 2;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+}
+
+/* Optional text enhancement for headings inside main content */
+.main-content h1, .main-content h2, .main-content h3 {
+  color: #ffc107; /* Eye-catching yellow for headings */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Add depth to headings */
+  margin-bottom: 20px;
+  font-weight: bold; /* Stronger heading for better visibility */
+}
+
+.main-content p {
+  font-size: 1.2rem; /* Slightly larger paragraph text */
+  line-height: 1.8; /* Improved line spacing for readability */
+  margin-bottom: 20px;
+  color: #e0e0e0; /* Softer text color */
+}
+
+/* Title styles */
+#Security-awareness-header,
+#Fundamentals-header,
+
+#Ransomware-Attacks-header,
+#Remote-Work-Good-Practices-header {
+  font-size: 2.5rem;
+  color: #ffc107;
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+#Phishing-Attacks-header{
+  margin-top: 15%;
+  font-size: 2.5rem;
+  color: #ffc107;
+  margin: 10px 0;
+  left: 2%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+/* Paragraph styles */
+p {
+  font-size: 1.3rem;
+  color: #ddd;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+#Security-awareness p {
+  text-align: left;
+ width: 900px; /* Limit width for better readability */
+   /* Let the height adjust based on content */
+  padding: 20px; /* Increased padding for better spacing */
+  border: 4px solid #0033cc; /* Updated to a bold and modern blue */
+  border-radius: 20px; /* More rounded corners for a sleek appearance */
+  background-color: rgba(255, 255, 255, 0.15); /* Subtle background with more transparency */
+  backdrop-filter: blur(5px); /* Add a glassy blur effect for a modern look */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for better depth */
+   /* Centered and spaced from other content */
+  line-height: 1.5; /* Improved line spacing for readability */
+  color: #f1f1f1; /* Soft off-white color for text */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+#Security-awareness p:hover {
+  transform: scale(1.05); /* Slight zoom-in effect on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+  background-color: rgba(255, 255, 255, 0.25); /* More prominent background on hover */
+}
+
+/* Optional text styling */
+#Security-awareness p strong {
+  color: #ffc107; /* Highlighted text in yellow for emphasis */
+  font-weight: bold;
+}
+
+#Security-awareness p em {
+  color: #00ccff; /* Emphasized text with a bright blue color */
+  font-style: italic;
+}
+
+/* Section layout */
+#Fundamentals {
+  padding: 40px; /* Increased padding for better spacing */
+  background: linear-gradient(135deg, rgba(11, 51, 92, 0.5), rgba(53, 62, 98, 0.5)); /* More transparent gradient */
+  border-radius: 15px; /* Smoother, larger rounded corners */
+  margin: 25px 0; /* Adjusted margin for more spacing between sections */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-left: 8px solid #ffc107; /* Accent left border for emphasis */
+  transition: transform 8.6s, box-shadow 0.1s;
+   /* Smooth hover transition */
+}
+
+/* Hover effect for Fundamentals section */
+#Fundamentals:hover {
+  transform: scale(1.04); /* Slight zoom on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
+}
+
+/* Specific styles for points in Fundamentals */
+#Fundamentals h3 {
+  font-size: 1.8rem; /* Increased font size for better visibility */
+  margin-bottom: 15px; /* More spacing below headings */
+  color: #4d5629; /* Darker color for stronger readability */
+  font-weight: 700; /* Bolder headings */
+  border-bottom: 2px solid #ffc107; /* Accent line under heading */
+  padding-bottom: 5px;
+}
+
+#Fundamentals p {
+  font-size: 1.1rem; /* Slightly larger font for paragraphs */
+  line-height: 1.6; /* Improved readability with better line spacing */
+  color: #495057; /* Softer dark color for text */
+  margin-bottom: 10px;
+  color: white; /* Added margin between paragraphs */
+}
+
+#Fundamentals ul {
+  padding-left: 20px; /* Ensure list items are indented */
+}
+
+
+
+#Fundamentals li {
+  font-size: 1.1rem; /* Consistent font size for list items */
+  line-height: 1.6;
+  color: #6c757d; /* Muted color for list items */
+  margin-bottom: 10px; /* Added spacing between list items */
+  position: relative; /* Positioning for custom list icon */
+}
+
+#Fundamentals li:before {
+  content: '✓'; /* Custom checkmark icon */
+  color: #28a745; /* Green checkmark for completed points */
+  position: absolute; /* Position checkmark on the left */
+  left: -25px;
+  top: 0;
+}
+
+/* Hover effect for headings */
+#Fundamentals h3:hover {
+  color: #ffc107; /* Change heading color on hover */
+  cursor: pointer;
+}
+
+
+/* Left-aligned sections */
+#Security-awareness
+ {
+  text-align: left;
+  margin-right: auto;
+  max-width: 700px; 
+  height: 800px;/* Limit width for better readability */
+}
+#Phishing-Attacks {
+  text-align: left;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.7)
+  ); 
+  margin-right: auto;
+  width: 1000px;
+  height: 400px; 
+  border: 5px solid #091274; /* Changed to a more appealing color */
+  border-radius: 15px; /* Rounded corners */
+  padding: 20px; /* Inner spacing */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the Phishing Attacks section */
+#Phishing-Attacks:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Right-aligned sections */
+#Ransomware-Attacks {
+  text-align: right;
+margin-top: 5%;
+  margin-left: auto; /* Align to the right */
+  max-width: 800px; /* Limit width for better readability */
+  border: 5px solid #28a745; /* Green border for appeal */
+  border-radius: 15px; /* Rounded corners */
+  padding: 20px; /* Inner spacing */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for the Ransomware Attacks section */
+#Ransomware-Attacks:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+#Remote-Work-Good-Practices {
+  text-align: left;
+  margin-top: 5%;
+  margin-right: auto;
+  max-width: 800px; /* Limit width for better readability */
+  border: 4px solid #007bff; /* Blue border for a professional look */
+  border-radius: 15px; /* Rounded corners for smooth edges */
+  padding: 20px; /* Add spacing inside the container */
+  background-color: rgba(240, 248, 255, 0.2); /* Soft light background for contrast */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover transition */
+}
+
+/* Hover effect for Remote Work Good Practices */
+#Remote-Work-Good-Practices:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Styling for points in Fundamentals */
+#Fundamentals p {
+  list-style-type: disc;
+  padding-left: 10px;
+}
+
+#Fundamentals li {
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 168px) {
+  .home-container {
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Slight background color to enhance text visibility */
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
   }
-  
-  .home-content h1 {
-    font-size: 3rem;
-    color: #fff;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    font-family: 'Poppins', sans-serif; /* Change font for a more modern look */
+
+  /* Stack elements on smaller screens */
+  #Security-awareness,
+  #Phishing-Attacks,
+  #Ransomware-Attacks,
+  #Remote-Work-Good-Practices {
+    text-align: center; /* Center align on smaller screens */
+    margin: 20px 0;
   }
-  
-  .home-content p {
-    font-size: 1.5rem;
-    color: #ddd;
-    margin-bottom: 40px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    line-height: 1.6;
+
+  /* Ensure all headers are consistently sized */
+  #Security-awareness-header,
+  #Fundamentals-header,
+  #Phishing-Attacks-header,
+  #Ransomware-Attacks-header,
+  #Remote-Work-Good-Practices-header {
+    font-size: 4rem;
   }
-  
-  .home-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    z-index: 2;
-  }
-  
-  .home-btn {
-    padding: 12px 25px;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 30px; /* Rounder corners for a modern look */
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  }
-  
-  .home-btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px); /* Slight lift effect on hover */
-  }
-  
-  .manage-staff-btn {
-    background-color: #28a745;
-  }
-  
-  .manage-staff-btn:hover {
-    background-color: #218838;
-  }
-  
-  .voice-command-btn {
-    background-color: #ffc107;
-  }
-  
-  .voice-command-btn:hover {
-    background-color: #e0a800;
-  }
-  
+}

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './css/OnePetShow.css'
 
-function OnePetShow() {
+function PersonalShow() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [updatediscount, setupdatediscount] = useState({
@@ -99,4 +99,4 @@ function OnePetShow() {
   );
 }
 
-export default OnePetShow;
+export default PersonalShow;

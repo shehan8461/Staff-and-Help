@@ -4,11 +4,8 @@ const TaskSchema = new mongoose.Schema({
     
     stafffid: {
         type: String,
-        required: true,
-        unique: true,
- 
-       
-      
+        
+        
         
     },
     task_name: {
@@ -41,6 +38,6 @@ const TaskSchema = new mongoose.Schema({
    
 }, { timestamps: true });
 
-const Task = mongoose.model("Ta", TaskSchema);
+const Task = mongoose.model("Tasks", TaskSchema);
 
 export default Task;

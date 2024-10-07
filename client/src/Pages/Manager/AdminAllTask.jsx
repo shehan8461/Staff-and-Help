@@ -75,7 +75,7 @@ export default function AdminAllTask() {
               <div className="task-action-buttons">
                 <button
                   className={`status-button ${task.is_complete ? 'completed-status' : 'pending-status'}`}
-                  onClick={() => handleCompleteTask(task._id)}
+                
                 >
                   {task.is_complete ? 'Completed' : 'Pending'}
                 </button>

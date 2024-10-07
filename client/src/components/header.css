@@ -1,124 +1,102 @@
-/* Main container styles */
+/* Overall NavBar Styling */
 .nav {
-  background-color: rgba(46, 50, 44, 0.574); /* Adjust the transparency for a subtle effect */
-  height: 12rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 2rem;
-  position: relative;
-  z-index: 10;
-  backdrop-filter: blur(5px); /* Apply blur effect to the background */
-  border: 2px solid rgba(0, 0, 0, 0.629);  /* Green border for a fresh, appealing look */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
-}
-
-
-/* Flex container styles */
-.navbardetails {
+  background: linear-gradient(90deg, #0c2e53, #101010); /* Attractive gradient */
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  position: sticky; /* Sticky navbar on scroll */
+  top: 0;
+  z-index: 1000;
 }
 
-/* Header subtitle */
-#h3 {
-  color: #f0f0f0; /* Light gray for contrast */
-  font-weight: 300;
-  font-size: 1.5rem;
-  position: absolute;
-  top: -50%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Deeper shadow for better readability */
-  font-family: 'Montserrat', sans-serif; /* Modern, clean font */
-}
-
-/* Logo styles */
+/* Webpage Name Styling */
 .twebpagename {
+  font-size: 2.5rem;
+  color: #fff;
   font-weight: 700;
-  font-size: 2.8rem;
-  color: #4CAF50; /* Green color matching the border for a cohesive look */
-  text-decoration: none;
-  position: relative;
-  z-index: 2;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Stronger shadow for emphasis */
-  font-family: 'Montserrat', sans-serif;
-  padding-left: 1rem;
-  margin-left:-10%;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Subheading */
+#h3 {
+  position: absolute;
+  font-size: 1.8rem;
+  color: #f0f0f0;
+  font-family: 'Roboto', sans-serif; /* Clean font */
+left: 45%;
+top: 5%;
 
 }
 
-/* Navigation list styles */
+/* Navigation Links */
 .other-topics {
-  list-style: none;
-  margin: 0;
   display: flex;
-  gap: 2rem;
-  position: relative;
-  z-index: 2;
- margin-right: -10%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
+.other-topics li {
+  margin: 15px;
+  font-size: 1.4rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+}
+
+/* Hover Effect on Links */
+.other-topics li:hover {
+  color: #ffcc00; /* Highlight color */
+  transform: scale(1.1);
+}
+
+/* Links Styling */
 .other-topics a {
   text-decoration: none;
-  color: #f0f0f0; /* Light gray text to match the subtitle */
-  font-size: 1.2rem;
-  font-family: 'Montserrat', sans-serif;
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: inherit; /* Inherit color from parent for cleaner code */
 }
 
-.other-topics li:hover {
-  color: #4CAF50; /* Green color on hover to match the logo and border */
-  transform: translateY(-3px); /* Slight lift on hover for a dynamic effect */
-}
-
-/* Profile picture styles */
+/* Profile Image */
 .h-7 {
-  height: 2.5rem;
-}
-
-.w-7 {
-  width: 2.5rem;
-}
-
-.rounded-full {
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
-}
-
-.object-cover {
+  border: 2px solid #fff; /* White border around profile picture */
   object-fit: cover;
-  border: 2px solid #f0f0f0; /* Light gray border to match text colors */
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-  .twebpagename {
-    font-size: 2rem; /* Reduce size for smaller screens */
-    padding-left: 0;
-    text-align: center;
-  
-  }
+.h-7:hover {
+  transform: scale(1.2); /* Enlarges the profile picture slightly on hover */
+}
 
-  #h3 {
-    font-size: 1.3rem; /* Reduce subtitle size */
-    top: 60%;
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .navbardetails {
+    flex-direction: column;
+    text-align: center;
   }
 
   .other-topics {
     flex-direction: column;
-    gap: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 10px;
   }
 
-  .nav {
-    height: auto;
-    padding: 1rem 2rem;
+  .other-topics li {
+    margin: 10px 0;
+  }
+
+  .twebpagename {
+    font-size: 2rem;
+  }
+
+  #h3 {
+    font-size: 1rem;
   }
 }

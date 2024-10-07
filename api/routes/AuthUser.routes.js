@@ -1,5 +1,5 @@
 import express from 'express'
-import { signin, signup,google,signout,AddStaff,getStaffByUserId,AllStaff,manager_signup,manager_signin,manager_send_email,AddTASK,AllTasks} from '../controllers/auth.controller.js';
+import { signin, signup,google,signout,AddStaff,getStaffByUserId,AllStaff,manager_signup,manager_signin,manager_send_email,AddTASK,AllTasks} from '../controllers/AuthUser.controller.js';
 
 
 const router=express.Router();

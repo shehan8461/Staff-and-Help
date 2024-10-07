@@ -1,0 +1,51 @@
+.about-home {
+    background-color: #f9f9f9; /* Light background for contrast */
+    color: #000000; /* Dark text for readability */
+    font-family: 'Roboto', sans-serif; /* Modern and clean font */
+    padding: 40px;
+    border-radius: 10px; /* Soft rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 900px;
+    margin: 60px auto;
+    line-height: 3.0; /* Increased line spacing for readability */
+    text-align: center; /* Center text alignment */
+  }
+  
+  .about-home h1 {
+    font-size: 2.8rem; /* Larger heading size for emphasis */
+    color: #0077ff; /* Skyrek-themed color for the heading */
+    margin-bottom: 20px;
+  }
+  
+  .about-home p {
+    font-size: 1.5rem; /* Slightly larger paragraph font size */
+    margin-bottom: 20px;
+    color:black;
+  }
+  
+  .about-home p:first-letter {
+    font-size: 2rem; /* Stylish large first letter */
+    color: #0077ff; /* Matching the color theme */
+    font-weight: bold;
+  }
+  
+  .about-home a {
+    color: #0077ff; /* Matching link color with theme */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+  }
+  
+  .about-home a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: #0056b3; /* Darken color on hover */
+  }
+  
+  .about-home:hover {
+    transform: scale(1.02); /* Slight grow effect on hover */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+  }
+  
+  .about-home p strong {
+    color: #0077ff; /* Make strong text match theme color */
+  }
+  

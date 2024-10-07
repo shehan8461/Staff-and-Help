@@ -11,7 +11,7 @@ import PrivateRoutes from './components/PrivateRoutes';
 
 
 
-import OnePetShow from './Pages/OnePetShow'
+import PersonalShow from './Pages/PersonalShow'
 import AddStaff from './Pages/AddStaff';
 import StaffDetailsProfile from './Pages/StaffDetailsProfile';
 import UpdateStaff from './Pages/UpdateStaff';
@@ -26,6 +26,7 @@ import UpdateTask from './Pages/Tasks/UpdateTask';
 import ManagerAllDetails from './Pages/Manager/ManagerAllDetails';
 import AdminAllTask from './Pages/Manager/AdminAllTask';
 import Home from './Pages/Home'
+import About from './Pages/About';
 
 
 
@@ -51,9 +52,9 @@ export default function App() {
     <Route path="/AddStaff" element={<div><Header/><AddStaff/></div>}></Route>
    
     <Route path="/sign-up" element={<div><Header/><SignUp/></div>}></Route>
-   
+    <Route path="/about" element={<div><Header/><About/></div>}></Route>
 
-    <Route path="/onepet/:id" element={<OnePetShow/>}></Route>
+    <Route path="/onepet/:id" element={<PersonalShow/>}></Route>
  
 
 
